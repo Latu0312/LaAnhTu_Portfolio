@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Lã Anh Tú</title>
+  <meta name="description" content="Portfolio cá nhân - dự án, liên hệ" />
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent: #06b6d4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      color: #e6eef6;
+      min-height: 100vh;
+      padding: 50px;
+      line-height: 1.7;
+      background-image: url('images/Background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 1400px; /* 🔹 mở rộng khung tổng */
+      margin: auto;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .avatar {
+      width: 180px; /* 🔹 to hơn */
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .job-title {
+      font-size: 20px;
+      color: #e6eef6;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      font-size: 26px;
+    }
+
+    p {
+      color: #d1d5db;
+      margin-bottom: 12px;
+      text-align: justify;
+      font-size: 17px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05)
+        url('images/gamepad-bg.png') center/250px no-repeat;
+      border-radius: 16px;
+      padding: 35px;
+      margin-bottom: 32px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    .card::before {
+      content: "🎮";
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      opacity: 0.15;
+      font-size: 48px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* vẫn giữ 4 dự án 1 hàng */
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .project {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .project img {
+      width: 100%;
+      height: 230px; /* 🔹 ảnh to hơn */
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .project-content p {
+      font-size: 15px;
+      color: var(--muted);
+      text-align: justify;
+      flex-grow: 1;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 50px;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .project img {
+        height: 220px;
+      }
+      .avatar {
+        width: 150px;
+        height: 150px;
+      }
+      .container {
+        padding: 35px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+        background-attachment: scroll;
+      }
+
+      .container {
+        padding: 25px;
+        border-radius: 12px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+      }
+
+      .job-title {
+        font-size: 17px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .card {
+        padding: 20px;
+        background-size: 150px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project img {
+        height: 200px;
+      }
+    }
+
+    /* Mobile nhỏ */
+    @media (max-width: 480px) {
+      .container {
+        padding: 16px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
+      .project-content h3 {
+        font-size: 15px;
+      }
+      p, li {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="images/AvatarCV.jpg" alt="Ảnh đại diện" class="avatar">
+      <h1>Lã Anh Tú</h1>
+      <div class="job-title">Nghề nghiệp: Unity Game Developer</div>
+      <div class="contact-info">📞 SĐT: 0528381771</div>
+      <div class="contact-info">✉️ Email: latu0312@gmail.com</div>
+    </header>
+
+    <section class="card">
+      <h2>Mô tả về bản thân</h2>
+      <p>Là một lập trình viên game mới ra trường, em đã có kinh nghiệm thực hành phát triển nhiều dự án cá nhân và nhóm nhỏ sử dụng Unity và C#. Em tập trung vào việc xây dựng gameplay, hệ thống điều khiển nhân vật, và xử lý logic cho các cơ chế game 2D và 3D.</p>
+      <p>Trong quá trình học tập và tự nghiên cứu, em đã làm quen với các công nghệ như Photon Fusion để lập trình multiplayer, Cinemachine để xử lý camera, và NavMesh / FSM / Behavior Tree để điều khiển AI. Em cũng có kinh nghiệm thiết kế UI/UX trong game, bao gồm bố cục giao diện, điều hướng menu, hiệu ứng tương tác và tối ưu trải nghiệm người chơi.</p>
+      <p>Em là người có tinh thần học hỏi cao, yêu thích sáng tạo và mong muốn được làm việc trong môi trường phát triển game chuyên nghiệp để trau dồi kỹ năng, đóng góp ý tưởng và trở thành một Game Developer thực thụ trong tương lai gần.</p>
+    </section>
+
+    <section class="card">
+      <h2>Dự án đã hoàn thành</h2>
+      <div class="projects">
+        <div class="project">
+          <img src="images/ZombieSurvival.png" alt="Dự án 1">
+          <div class="project-content">
+            <h3><a href="https://github.com/Latu0312/Zombie-Survival---Last-Night" target="_blank">Zombie Survival - Last Night <br>(Dự án OutSource)</a></h3>
+            <li>Trò chơi bắn Zombie góc nhìn top-down, đồ họa 3d Low Poly, người chơi sẽ hoàn thành các màn chơi và nâng cấp súng, chỉ số người chơi để chiến đấu với các loại quái zombie khỏe hơn. </li>
+            <li>Game được thiết kế bằng Unity 3d và các công cụ như Figma, Adobe Photoshop để thiết kế UI/UX</li>
+            <li>Game được thiết kế và lập trình sử dụng các kỹ thuật như Object Pooling, và các Design Pattern</li>
+            <li>Nhân vật và các loại quái trong game được thiết kế sử dụng Behavior Tree,NavMesh và Enemy attack & chase logic</li>
+            <li>Game được lưu trữ dữ liệu local bằng playerpref </li>
+            <li>Game được thiết kế có hiệu ứng và âm thanh kịch tính và hành động phù hợp với Gameplay</li>
+          </div>
+        </div>
+        <div class="project">
+          <img src="images/HitTheZombie.png" alt="Dự án 2">
+          <div class="project-content">
+            <h3><a href="https://github.com/Latu0312/Hit-The-Zombie" target="_blank">Hit The Zombie<br>(Dự án cá nhân)</a></h3>
+            <li>Trò chơi 3D lái ô tô tông zombie và ăn vật phẩm xăng trên đường để hồi lại bình xăng để được đi tiếp. Nếu xe hết xăng thì kết thúc màn chơi. Người chơi sẽ nhận tiền sau mỗi ván chơi và nâng cấp các chỉ số cho xe.</li>
+            <li>Game được thiết kế bằng Unity 3D và các công cụ như Figma, Adobe Photoshop để thiết kế UI/UX</li>
+            <li>Game được thiết kế và lập trình sử dụng các kỹ thuật như Object Pooling, và các Design Pattern </li>
+            <li>Game được sử dụng wheel collider và rigibody để tính toán vật lý cho xe ô tô</li>
+            <li>Game sử dụng ScriptableObject và dữ liệu người chơi được lưu vào playerpref </li>
+            <li>Game được thiết kế có hiệu ứng và âm thanh vui nhộn phù hợp với Gameplay</li>
+          </div>
+        </div>
+        <div class="project">
+          <img src="images/PassTheBeer.png" alt="Dự án 3">
+          <div class="project-content">
+            <h3><a href="https://github.com/Latu0312/Pass-The-Beer" target="_blank">Pass The Beer<br>(Dự án cá nhân)</a></h3>
+            <li>Game 3D low poly bối cảnh vui nhộn trong quán bar, người chơi sẽ kéo thả các loại đồ uống đúng với order của khách hàng. Nếu làm sai hết order thì kết thúc màn chơi.Người chơi sẽ nhận tiền sau khi phục vụ cho khách hàng và người chơi sẽ mua các buff cho màn chơi</li>
+            <li>Game được thiết kế bằng Unity 3D và các công cụ như Figma, Adobe Photoshop để thiết kế UI/UX</li>
+            <li>Game được thiết kế và lập trình sử dụng các kỹ thuật như Object Pooling, và các Design Pattern</li>
+            <li>Game sử dụng ScriptableObject và dữ liệu người chơi được lưu vào playerpref </li>
+            <li>Game được thiết kế có hiệu ứng và âm thanh vui nhộn phù hợp với Gameplay</li>
+          </div>
+        </div>
+        <div class="project">
+          <img src="images/LudoParty.png" alt="Dự án 4">
+          <div class="project-content">
+            <h3><a href="https://github.com/Latu0312/Ludo-Party" target="_blank">Ludo Party (Cờ cá ngựa Online)<br>(Dự án cá nhân)</a></h3>
+            <li>Trò chơi 3D cờ cá ngựa được xây dựng dựa trên luật chơi cờ cá ngựa Việt Nam, ngoài ra còn có 1 chế độ chơi funny sẽ bao gồm các ô hiệu ứng trên đường đi nhằm gây bất lợi hoặc hỗ trợ người chơi trong ván.</li>
+            <li>Game được thiết kế bằng Unity 3D và công cụ như Figma, Adobe Photoshop để thiết kế UI/UX </li>
+            <li>Game được sử dụng Photon Fusion để thiết kế Multiplayer</li>
+            <li>Game sử dụng Firebase và Google Admob để lưu trữ dữ liệu người chơi lên database, tạo tài khoản, mua bán trong game và thêm quảng cáo nhận thưởng trong Game.</li>
+            <li>Game có cơ chế tạo phòng chơi và join phòng bằng Firebase. Các dữ liệu về người chơi và phòng chơi sẽ được lưu lại trên Firebase</li>
+            <li>Trong Game người chơi có thể kết bạn và chat qua lại. Tin nhắn sẽ được hệ thống lưu trữ lên Firebase</li>
+            <li>Trong trò chơi có tích hợp In-App Purchase để người chơi có thể mua các vật phẩm trong game bằng tiền thật. Việc thanh toán sẽ được xử lý thông qua Google Play Billing Library và dữ liệu giao dịch sẽ được lưu trữ trên Firebase</li>
+            <li>Game được thiết kế có hiệu ứng và âm thanh vui nhộn phù hợp với Gameplay</li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Quá trình làm việc và kỹ năng học được</h2>
+      <p>Trong quá trình phát triển các dự án trên Unity, em đã học được cách sử dụng hiệu quả các công nghệ như:</p>
+      <ul>
+        <li>OOP trong C# (Encapsulation, Inheritance, Polymorphism, Abstraction)</li>
+        <li>Các Design Pattern phổ biến như Singleton, Object Pooling, State Pattern, Observer...</li>
+        <li>Phát triển gameplay 2D/3D: điều khiển, vật lý, va chạm, logic.</li>
+        <li>Tối ưu hiệu năng với Object Pooling.</li>
+        <li>Xây dựng AI với NavMeshAgent, FSM và Behavior Tree.</li>
+        <li>Multiplayer với Photon Fusion, đồng bộ client-server.</li>
+        <li>Xử lý camera với Cinemachine.</li>
+        <li>Thiết kế UI/UX thân thiện, phù hợp phong cách game.</li>
+        <li>Quản lý project với Prefab Variant, ScriptableObject và Custom Editor.</li>
+        <li>Sử dụng Firebase để lưu trữ và đồng bộ dữ liệu game.</li>
+        <li>Tích hợp quảng cáo bằng Google Admob.</li>
+      </ul>
+    </section>
+
+    <footer>© Lã Anh Tú — Portfolio.</footer>
+  </div>
+</body>
+</html>
