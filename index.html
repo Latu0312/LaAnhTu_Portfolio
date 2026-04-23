@@ -165,26 +165,35 @@
 /* 🔹 Danh sách mũi tên */
 .project-content ul {
   margin-top: 10px;
-  padding-left: 0;
+  padding-left: 20px; /* để có bullet */
 }
 
 .project-content li {
-  list-style: none;
+  list-style: disc; /* bullet tròn */
   margin-bottom: 6px;
   font-size: 15px;
-  position: relative;
-  padding-left: 20px;
+  padding-left: 0;
 }
 
 /* 👉 Thay bullet thành mũi tên */
 .project-content li::before {
+  content: none;
+}
+.project-content h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  position: relative;
+  padding-left: 22px;
+}
+
+/* 👉 Mũi tên cho tiêu đề */
+.project-content h3::before {
   content: "➤";
   position: absolute;
   left: 0;
   color: var(--accent);
   font-size: 14px;
 }
-
     footer {
       text-align: center;
       font-size: 14px;
@@ -211,8 +220,10 @@
 
     /* Mobile */
     @media (max-width: 768px) {
-  .project {
+    .project {
     flex-direction: column;
+    .skills-grid {
+    grid-template-columns: 1fr;
   }
 
       .container {
@@ -275,6 +286,35 @@
         font-size: 13px;
       }
     }
+
+    .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* 🔹 box từng nhóm */
+.skills-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* 🔹 tiêu đề */
+.skills-box h3 {
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+/* 🔹 list */
+.skills-box ul {
+  padding-left: 18px;
+}
+
+.skills-box li {
+  margin-bottom: 6px;
+}
   </style>
 </head>
 <body>
@@ -371,8 +411,14 @@
     </section>
 
     <section class="card">
-      <h2>Quá trình làm việc và kỹ năng học được</h2>
-      <p>Trong quá trình phát triển các dự án trên Unity, em đã học được cách sử dụng hiệu quả các công nghệ như:</p>
+  <h2>Quá trình làm việc và kỹ năng học được</h2>
+  <p>Trong quá trình phát triển các dự án trên Unity, em đã học được cách sử dụng hiệu quả các công nghệ như:</p>
+
+  <div class="skills-grid">
+    
+    <!-- Game Developer -->
+    <div class="skills-box">
+      <h3>🎮 Game Developer</h3>
       <ul>
         <li>OOP trong C# (Encapsulation, Inheritance, Polymorphism, Abstraction)</li>
         <li>Các Design Pattern phổ biến như Singleton, Object Pooling, State Pattern, Observer...</li>
@@ -381,12 +427,29 @@
         <li>Xây dựng AI với NavMeshAgent, FSM và Behavior Tree.</li>
         <li>Multiplayer với Photon Fusion, đồng bộ client-server.</li>
         <li>Xử lý camera với Cinemachine.</li>
-        <li>Thiết kế UI/UX thân thiện, phù hợp phong cách game.</li>
         <li>Quản lý project với Prefab Variant, ScriptableObject và Custom Editor.</li>
         <li>Sử dụng Firebase để lưu trữ và đồng bộ dữ liệu game.</li>
         <li>Tích hợp quảng cáo bằng Google Admob.</li>
       </ul>
-    </section>
+    </div>
+
+    <!-- Game Designer -->
+    <div class="skills-box">
+      <h3>🧠 Game Designer</h3>
+      <ul>
+        <li>Thiết kế gameplay và cơ chế vận hành game.</li>
+        <li>Cân bằng game (difficulty, progression, economy).</li>
+        <li>Thiết kế UI/UX thân thiện, phù hợp trải nghiệm người chơi.</li>
+        <li>Phân tích trải nghiệm người chơi và cải thiện gameplay.</li>
+        <li>Nghiên cứu thị trường và xu hướng game.</li>
+        <li>Viết Game Design Document (GDD).</li>
+        <li>Lên ý tưởng và phát triển concept game.</li>
+        <li>Phối hợp với team Dev/Art để triển khai tính năng.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
     <footer>© Lã Anh Tú — Portfolio.</footer>
   </div>
