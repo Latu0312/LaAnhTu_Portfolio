@@ -117,57 +117,73 @@
 
     /* 🔹 sửa phần layout để khung project cân đều và không giãn */
     .projects {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      margin-top: 20px;
-      align-items: start;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 
-    .project {
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      height: 100%;
-    }
+/* 🔹 Mỗi project thành layout ngang */
+.project {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    }
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
 
-    .project img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      display: block;
-    }
+/* 🔹 Ảnh nằm bên trái */
+.project img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
 
-    .project-content {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
+/* 🔹 Nội dung bên phải */
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-    .project-content h3 {
-      margin: 0 0 10px 0;
-      font-size: 20px;
-      line-height: 1.4;
-    }
+/* 🔹 Tiêu đề */
+.project-content h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
 
-    .project-content li {
-      margin: 2px 0;
-      line-height: 1.3;
-      list-style-position: inside;
-      color: #d1d5db;
-      font-size: 15px;
-    }
+/* 🔹 Danh sách mũi tên */
+.project-content ul {
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+.project-content li {
+  list-style: none;
+  margin-bottom: 6px;
+  font-size: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* 👉 Thay bullet thành mũi tên */
+.project-content li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 14px;
+}
 
     footer {
       text-align: center;
@@ -195,10 +211,9 @@
 
     /* Mobile */
     @media (max-width: 768px) {
-      body {
-        padding: 15px;
-        background-attachment: scroll;
-      }
+  .project {
+    flex-direction: column;
+  }
 
       .container {
         padding: 25px;
@@ -236,9 +251,10 @@
       }
 
       .project img {
-        height: 200px;
-      }
-    }
+    width: 100%;
+    height: 200px;
+  }
+}
 
     /* Mobile nhỏ */
     @media (max-width: 480px) {
@@ -272,15 +288,16 @@
     </header>
 
     <section class="card">
-      <h2>Mô tả về bản thân</h2>
-      <p>Là một lập trình viên game mới ra trường, em đã có kinh nghiệm thực hành phát triển nhiều dự án cá nhân và nhóm nhỏ sử dụng Unity và C#. Em tập trung vào việc xây dựng gameplay, hệ thống điều khiển nhân vật, và xử lý logic cho các cơ chế game 2D và 3D.</p>
-      <p>Trong quá trình học tập và tự nghiên cứu, em đã làm quen với các công nghệ như Photon Fusion để lập trình multiplayer, Cinemachine để xử lý camera, và NavMesh / FSM / Behavior Tree để điều khiển AI. Em cũng có kinh nghiệm thiết kế UI/UX trong game, bao gồm bố cục giao diện, điều hướng menu, hiệu ứng tương tác và tối ưu trải nghiệm người chơi.</p>
-      <p>Em là người có tinh thần học hỏi cao, yêu thích sáng tạo và mong muốn được làm việc trong môi trường phát triển game chuyên nghiệp để trau dồi kỹ năng, đóng góp ý tưởng và trở thành một Game Developer thực thụ trong tương lai gần.</p>
+      <h1>Mô tả về bản thân</h1>
+      <p>Là người có niềm đam mê với lĩnh vực game, em đã tham gia phát triển và nghiên cứu nhiều dự án cá nhân và nhóm nhỏ, tập trung vào việc xây dựng trải nghiệm người chơi thông qua gameplay, cơ chế vận hành và hệ thống tương tác trong game.</p>
+      <p>Em có kinh nghiệm làm việc với Unity và các công cụ hỗ trợ để phát triển game 2D/3D, đồng thời hiểu rõ quy trình từ ý tưởng, thiết kế, triển khai đến kiểm thử và tối ưu sản phẩm. Bên cạnh đó, em thường xuyên theo dõi thị trường game, phân tích xu hướng và trải nghiệm người dùng để cải thiện chất lượng sản phẩm.</p>
+      <p>Em quan tâm đến việc cân bằng giữa thiết kế gameplay, cảm giác điều khiển và tính ổn định của hệ thống, nhằm mang lại trải nghiệm mượt mà và hấp dẫn cho người chơi. Ngoài ra, em có khả năng phối hợp làm việc nhóm, trao đổi ý tưởng và hỗ trợ trong các khâu từ thiết kế đến kiểm thử.</p>
+      <p>Mục tiêu của em là tiếp tục phát triển kỹ năng trong môi trường chuyên nghiệp, đóng góp vào việc xây dựng những sản phẩm game chất lượng và mang lại giá trị giải trí cao cho người dùng.</p>
     </section>
 
     <section class="card">
-      <h2>Dự án đã hoàn thành</h2>
-      <h2>(Ấn vào tiêu đề để xem github + GDD)</h2>
+      <h1>Dự án đã hoàn thành</h1>
+      <h2>(Ấn vào tiêu đề để xem Github và GDD dự án)</h2>
       <div class="projects">
         <!-- Zombie Survival -->
         <div class="project">
